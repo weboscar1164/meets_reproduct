@@ -1,0 +1,28 @@
+// 変数の定義
+$pc: 992px; // PC
+$tab: 580px; // タブレット
+$sp: 400px; // スマホ
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (min-width: ($sp)) {
+    @content;
+  }
+}
+
+//font
+
+$main_font: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo,
+  メイリオ, sans-serif;
+$accent_font: "Open Sans", sans-serif;
+$title_font: "Hind Guntur", sans-serif;
+$scroll_font: Parisienne, cursive;

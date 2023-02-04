@@ -1,0 +1,1460 @@
+@import "colors";
+@import "settings";
+////reset css
+
+//margin,padding,border
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+em,
+small,
+strong,
+sub,
+sup,
+mark,
+del,
+ins,
+strike,
+abbr,
+dfn,
+blockquote,
+q,
+cite,
+code,
+pre,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+div,
+section,
+article,
+main,
+aside,
+nav,
+header,
+hgroup,
+footer,
+img,
+figure,
+figcaption,
+address,
+time,
+audio,
+video,
+canvas,
+iframe,
+details,
+summary,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+//font size
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+* {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+//レイアウトとbox-sizing
+article,
+aside,
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+//imgセッティング
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+//要素スタイル
+ul,
+li,
+dl,
+dt,
+dd {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+////reset end
+
+//共通
+
+.preload {
+  transition: 0 !important;
+}
+
+.loading_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 30;
+}
+
+body {
+  font-family: $main_font;
+}
+
+.section_title {
+  color: $main_color;
+  text-align: center;
+
+  > p {
+    display: inline-block;
+    padding-bottom: 15px;
+    border-bottom: 3px solid $main_color;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: $accent_font;
+  }
+
+  > h2 {
+    margin-top: 22px;
+    font-family: $title_font;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+  }
+
+  @include tab {
+    h2 {
+      margin-top: 25px;
+      font-size: 40px;
+      line-height: 43px;
+    }
+  }
+}
+
+.section_container {
+  width: 82%;
+  margin: 0 auto;
+}
+
+.br_pc {
+  display: none;
+
+  @include tab {
+    display: block;
+  }
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto 0;
+  padding: 40px 0;
+  background: $button_color;
+  font-family: $accent_font;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  transition: background-color, 0.3s;
+
+  &::after {
+    content: "\f2d2";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; //weight指定していないと表示されない
+  }
+
+  &:hover {
+    background: darken($button_color, 8);
+  }
+}
+
+// header
+.header {
+  height: 60px;
+  background: #fff;
+  &_logo {
+    width: 120px;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+
+  &_button {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    z-index: 10;
+
+    a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      padding-top: 30px;
+      background: $accent_color;
+      color: #fff;
+      font-family: $accent_font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      transition: background-color, 0.3s;
+
+      &:hover {
+        background: darken($accent_color, 8);
+      }
+    }
+  }
+
+  @include tab {
+    &_button {
+      top: 15px;
+      right: 0;
+      width: 150px;
+      height: 60px;
+
+      > a {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+.mainvisual {
+  width: 100%;
+  height: calc(100vh - 90px - 50px); //100vh - header - (header_button -20px)
+  padding-bottom: 20px;
+  background: linear-gradient(#fff 42%, $main_color 42%);
+
+  &_container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &_img {
+    &_container {
+      position: relative;
+      width: 100%;
+      height: calc(
+        100vh - 90px - 90px - 50px
+      ); //100vh - header - manvisual_icon - header_button
+      background: #fff;
+    }
+
+    &_wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+  }
+
+  &_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    color: #fff;
+    font-family: $accent_font;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px rgba(#ddd, 0.5);
+    text-align: center;
+    z-index: 9;
+    transition: all 3s;
+
+    &_preload {
+      color: $main_color;
+      z-index: 40;
+    }
+  }
+
+  &_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    transition: transform 5s ease;
+    z-index: 5;
+  }
+
+  &_img1 {
+    background: url(../image/1.jpg) no-repeat center/cover;
+  }
+
+  &_img2 {
+    background: url(../image/2.jpg) no-repeat center/cover;
+  }
+  &_img3 {
+    background: url(../image/3.jpg) no-repeat center/cover;
+  }
+  &_img4 {
+    background: url(../image/4.jpg) no-repeat center/cover;
+  }
+  &_img5 {
+    background: url(../image/5.jpg) no-repeat center/cover;
+  }
+  &_img6 {
+    background: url(../image/6.jpg) no-repeat center/cover;
+  }
+  &_img7 {
+    background: url(../image/7.jpg) no-repeat center/cover;
+  }
+  &_img8 {
+    background: url(../image/8.jpg) no-repeat center/cover;
+  }
+  &_img9 {
+    background: url(../image/9.jpg) no-repeat center/cover;
+  }
+  &_img10 {
+    background: url(../image/10.jpg) no-repeat center/cover;
+  }
+
+  &_icon {
+    position: relative;
+    height: 90px;
+    text-align: center;
+    padding-top: 10px;
+
+    &_item1 {
+      display: block;
+      margin: 0 auto;
+      width: 1px;
+      height: 25px;
+      background: #fff;
+    }
+
+    &_item2 {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      display: block;
+      width: 5px;
+      height: 4px;
+      background: #fff;
+      opacity: 0;
+    }
+
+    &_text {
+      display: block;
+      margin-top: 10px;
+      color: #fff;
+      font-family: $scroll_font;
+      letter-spacing: 3px;
+    }
+  }
+
+  @include tab {
+    height: auto;
+    padding-bottom: 0;
+
+    &_container {
+      width: 85%;
+    }
+
+    &_title {
+      width: 95%;
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    &_img {
+      &_container {
+        height: 92vh;
+      }
+    }
+  }
+}
+
+//scrollアイコンアニメーション
+@keyframes scroll_icon {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+}
+
+.scroll_animation {
+  animation: scroll_icon 2s 4s infinite;
+}
+
+//mainvisual jquery操作
+.zoomImg {
+  transform: scale(1.05);
+}
+
+//about
+.about {
+  padding: 50px 0;
+  background: #fff;
+  &_img {
+    position: relative;
+    width: 90%;
+    height: 32vh;
+    margin: 0 auto;
+  }
+
+  &_title {
+    margin-top: 50px;
+    font-size: 21px;
+    line-height: 25px;
+    text-align: center;
+  }
+
+  hr {
+    margin-top: 23px;
+    height: 1px;
+    background-color: $accent_color;
+    border: none;
+  }
+
+  &_text {
+    h3 {
+      margin-top: 40px;
+      font-size: 18px;
+      line-height: 22px;
+      color: $text_color;
+      text-align: center;
+    }
+
+    p {
+      margin-top: 40px;
+      font-size: 16px;
+      line-height: 32px;
+      color: $text_color;
+    }
+  }
+
+  @include tab {
+    padding: 95px 0;
+    &_img {
+      height: 300px;
+    }
+
+    &_title {
+      margin-top: 105px;
+      font-size: 32px;
+      line-height: 38px;
+    }
+
+    &_text {
+      h3 {
+        margin-top: 60px;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// img loopアニメーション
+.loop {
+  &_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  &_item {
+    display: flex;
+    width: auto;
+    height: 100%;
+
+    > img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+
+//アニメーション処理
+@keyframes loop1 {
+  0% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes loop2 {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+.loop_item1 {
+  animation: loop1 40s -20s linear infinite; //１周目　loop2より1/2ずらして表示する。速度を変えたいときは秒数を変更
+}
+
+.loop_item2 {
+  animation: loop2 40s linear infinite;
+}
+
+//menu
+
+.menu {
+  padding-top: 50px;
+  background: $background_color;
+
+  &_items {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 25px;
+  }
+
+  &_item {
+    &:not(:first-of-type) {
+      margin-top: 60px;
+    }
+    > h3 {
+      padding: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid $main_color;
+      font-family: $accent_font;
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 25px;
+      letter-spacing: 5px;
+      text-align: center;
+    }
+
+    > dl {
+      display: flex;
+      margin-top: 18px;
+      padding-left: 15px;
+      > dt {
+        color: $text_color;
+        font-size: 13px;
+        line-height: 18px;
+      }
+
+      > dd {
+        margin-left: 10px;
+        color: $text_color;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 18px;
+      }
+    }
+
+    > p {
+      padding-left: 15px;
+      color: $text_color;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    > ul {
+      padding-left: 10px;
+      > li {
+        margin-top: 8px;
+        list-style-type: disc;
+        color: $text_color;
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+
+    &_notice {
+      margin-top: 20px;
+    }
+  }
+
+  @include tab {
+    padding-top: 100px;
+
+    &_items {
+      width: 90%;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 55px;
+    }
+
+    &_item {
+      position: relative;
+      width: calc((100% - (100px * 1)) / 2);
+      margin: 30px 0;
+
+      &:not(:first-of-type) {
+        margin: 30px 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -50px;
+        display: block;
+        width: 1px;
+        height: 100%;
+        background: #ddd;
+        visibility: hidden;
+      }
+      &:not(:nth-of-type(2n)) {
+        &::after {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  @include pc {
+    &_item {
+      width: calc((100% - (100px * 2)) / 3);
+
+      &:not(:nth-of-type(2n)) {
+        &::after {
+          visibility: hidden;
+        }
+      }
+      &:not(:nth-of-type(3n)) {
+        &::after {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+//canpaign
+.campaign {
+  padding-top: 60px;
+  padding-bottom: 45px;
+  background: $background_color;
+
+  &_img {
+    position: relative;
+    width: 90%;
+    height: 260px;
+    margin: 0 auto;
+    background: url(../image/cam1.jpg) no-repeat center/cover;
+    border-top: 10px solid $main_color;
+
+    > h2 {
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      right: 0;
+      display: inline-block;
+      width: 230px;
+      margin: auto;
+      padding: 18px;
+      background: $main_color;
+      color: #fff;
+      font-size: 21px;
+      line-height: 21px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  &_container {
+    padding: 28px 0;
+    background: #fff;
+  }
+
+  &_item {
+    padding: 30px 20px;
+
+    &_title {
+      color: $text_color;
+      text-align: center;
+
+      > h3 {
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 2px;
+      }
+
+      > p {
+        display: inline-block;
+        padding-bottom: 25px;
+        border-bottom: 3px solid $main_color;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19px;
+        letter-spacing: 1.2px;
+      }
+    }
+
+    &_text {
+      color: $text_color;
+      margin-top: 25px;
+      font-size: 14px;
+      line-height: 29px;
+      letter-spacing: 0.5px;
+    }
+
+    &_table {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 30px;
+      border-collapse: collapse;
+
+      > tbody {
+        > tr {
+          border-top: 1px solid #ddd;
+
+          &:last-of-type {
+            border-bottom: 1px solid #ddd;
+          }
+
+          > th,
+          td {
+            padding: 20px 8px;
+            font-size: 13px;
+            line-height: 22px;
+            text-align: left;
+          }
+
+          > th {
+            min-width: 100px;
+          }
+          > td {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @include tab {
+    padding-bottom: 100px;
+
+    &_img {
+      height: 460px;
+    }
+
+    &_container {
+      width: 90%;
+      padding-bottom: 10px;
+    }
+
+    &_item {
+      padding: 50px;
+      &_title {
+        > h3 {
+          font-size: 24px;
+          line-height: 29px;
+          letter-spacing: 6px;
+        }
+
+        > p {
+          font-size: 20px;
+          line-height: 29px;
+          letter-spacing: 4px;
+        }
+      }
+
+      &_text {
+        margin-top: 40px;
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+      }
+
+      &_table {
+        margin-top: 40px;
+        > tbody {
+          > tr {
+            > th,
+            td {
+              padding: 20px 30px;
+              font-size: 16px;
+              line-height: 22px;
+              text-align: left;
+            }
+
+            > th {
+              min-width: 130px;
+            }
+            > td {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//service
+.service {
+  padding-bottom: 45px;
+  background: #fff;
+
+  &_top {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 130vh;
+    background: url(../image/main.jpg) no-repeat center/cover;
+    z-index: -1;
+
+    &_wrapper {
+      width: 100%;
+      height: 80vh;
+    }
+  }
+
+  &_title {
+    padding-top: 50px;
+  }
+
+  &_text {
+    > h3 {
+      margin-top: 55px;
+      color: $text_color;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    > p {
+      margin-top: 40px;
+      color: $text_color;
+      font-size: 16px;
+      line-height: 32px;
+      letter-spacing: 0;
+    }
+  }
+
+  &_img {
+    margin-top: 20px;
+    display: flex;
+  }
+
+  &_items {
+    margin-top: 50px;
+  }
+
+  &_item {
+    margin-top: 5px;
+
+    &_top {
+      position: relative;
+      background: $button_color;
+      height: 125px;
+      cursor: pointer;
+
+      > p {
+        padding-top: 20px;
+        font-size: 14px;
+        line-height: 22px;
+        color: #fff;
+        text-align: center;
+      }
+
+      &_icon {
+        position: relative;
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 20px auto;
+        background: #fff;
+        border-radius: 50%;
+        transition: all, 0.3s;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: $main_color;
+        }
+
+        &::before {
+          height: 15px;
+          width: 2px;
+        }
+        &::after {
+          height: 2px;
+          width: 15px;
+        }
+
+        &_active {
+          transform: rotate(-135deg);
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(#000, 0.3);
+        z-index: 5;
+        opacity: 0;
+        transition: opacity, 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &_text {
+      padding: 50px 20px;
+      background: $button_hov_color;
+      > h3 {
+        color: #eee;
+        font-size: 16px;
+        line-height: 19px;
+
+        &:not(:first-of-type) {
+          margin-top: 50px;
+        }
+      }
+
+      > p {
+        margin-top: 20px;
+        color: #ddd;
+        font-size: 14px;
+        line-height: 28px;
+      }
+
+      > img {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  @include tab {
+    padding-bottom: 100px;
+
+    &_title {
+      margin-top: 100px;
+    }
+
+    &_text {
+      > h3 {
+        margin-top: 65px;
+      }
+    }
+
+    &_img {
+      margin-top: 45px;
+    }
+
+    &_items {
+      margin-top: 80px;
+    }
+    &_item {
+      &_top {
+        height: 150px;
+
+        > p {
+          padding-top: 30px;
+        }
+      }
+
+      &_text {
+        padding: 50px 60px;
+        text-align: center;
+
+        > h3 {
+          color: #eee;
+          font-size: 18px;
+          line-height: 21px;
+
+          &:not(:first-of-type) {
+            margin-top: 70px;
+          }
+        }
+
+        > p {
+          margin-top: 40px;
+          padding: 0 50px;
+        }
+
+        > img {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+
+//staff
+.staff {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  background: $main_color;
+
+  &_title {
+    color: #fff;
+
+    p {
+      border-bottom: 3px solid #fff;
+    }
+  }
+
+  &_container {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #fff;
+
+    &_img {
+    }
+
+    &_text {
+      padding: 20px;
+      text-align: center;
+
+      &_position {
+        display: inline-block;
+        border-bottom: 1px solid #ccc;
+        font-family: $title_font;
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      &_name {
+        margin-top: 10px;
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+
+      &_furigana {
+        font-size: 13px;
+        line-height: 11px;
+        letter-spacing: 2px;
+      }
+
+      &_comment {
+        margin-top: 30px;
+        font-size: 16px;
+        line-height: 30px;
+        text-align: left;
+      }
+    }
+
+    &:nth-last-of-type(even) {
+      background: $background_color;
+    }
+  }
+
+  @include tab {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    &_contents {
+      margin-top: 60px;
+    }
+  }
+
+  @include pc {
+    &_container {
+      width: 90%;
+    }
+    &_item {
+      flex-direction: row;
+      padding: 40px 20px;
+    }
+  }
+}
+
+//instagram
+.instagram {
+  padding: 50px 0 50px;
+  background: #fff;
+
+  &_contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 45px auto 0;
+  }
+
+  @include tab {
+    padding: 100px 0 90px;
+  }
+
+  @include pc {
+    &_contents {
+      flex-direction: row;
+      &_item {
+        width: calc((100% - 50px) / 2);
+      }
+    }
+  }
+}
+
+//access
+.access {
+  padding: 50px 0;
+  background: $background_color;
+
+  &_container {
+    width: 100%;
+    margin-top: 30px;
+    padding: 40px 0 0;
+    border-top: 1px dotted #999;
+  }
+
+  &_phone {
+    text-align: center;
+
+    > a {
+      display: inline-block;
+      font-family: $title_font;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 3px;
+    }
+
+    > p {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+  }
+
+  &_contents {
+    margin-top: 40px;
+    text-align: center;
+    > dt {
+      margin-top: 25px;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    > dd {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  &_btn {
+    margin-top: 40px;
+  }
+
+  &_map {
+    display: none;
+  }
+
+  @include tab {
+    padding-top: 100px;
+
+    &_container {
+      width: 90%;
+      margin-top: 50px;
+      padding: 50px;
+      border-bottom: 1px dotted #999;
+    }
+
+    &_phone {
+      > a {
+        font-size: 35px;
+        line-height: 22px;
+        letter-spacing: 8px;
+      }
+    }
+
+    &_contents {
+      text-align: center;
+
+      > dd {
+        font-size: 16px;
+      }
+    }
+
+    &_btn {
+      display: none;
+    }
+
+    &_map {
+      display: block;
+      width: 90%;
+      margin: 50px auto;
+
+      &_wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 48%;
+        overflow: hidden;
+
+        > iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &_btn {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+//recruite
+.recruite {
+  padding: 80px 0;
+  background: #fff;
+
+  &_text {
+    margin-top: 50px;
+    color: $text_color;
+    > h3 {
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: 3px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    > p {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 32px;
+    }
+  }
+
+  &_btn {
+    margin-top: 50px;
+  }
+
+  @include tab {
+    padding: 100px 0;
+
+    &_text {
+      > h3 {
+        font-size: 27px;
+        line-height: 33px;
+      }
+
+      > p {
+        margin-top: 40px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+//footer
+.footer {
+  padding: 50px 0 120px;
+  background: $main_color;
+  color: #fff;
+
+  &_sns {
+    text-align: center;
+    > a {
+      margin: 0 15px;
+      font-size: 22px;
+    }
+  }
+
+  > small {
+    margin-top: 20px;
+    display: block;
+
+    font-family: $accent_font;
+    font-size: 11px;
+    line-height: 22px;
+    letter-spacing: 2px;
+
+    text-align: center;
+  }
+}
+
+//swiperカスタム
+
+/* Swiperの親要素 */
+.swiper-parent {
+  position: relative;
+}
+/* Swiper本体 */
+.swiper-container {
+  padding-bottom: 50px; /* ★ページネーション・スクロールバー分の余白50pxを下に取る */
+  box-sizing: content-box;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: calc(100% / 6);
+    height: calc(100% - 50px);
+    background: rgba($main_color, 0.7);
+    z-index: 3;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}
+
+/* 前・次スライドボタンの縦位置調整（スライドの高さの中央に合わせる） */
+.swiper-button-prev,
+.swiper-button-next {
+  top: calc(
+    (100% - 50px) * 0.5
+  ); /* ☆★ページネーション・スクロールバー（50px）を除く縦位置の中央（＝スライドの高さの中央）に一旦配置 */
+  margin-top: -22px; /* ★ボタンの高さ（44px）の半分のネガティブマージンで上に少しずらす */
+}
+
+/* 全体のスタイル */
+.swiper-pagination-bullet {
+  box-sizing: content-box;
+  width: 40px;
+  height: 6px;
+  border-radius: 0%;
+  background: #999;
+  opacity: 0.8;
+
+  &:hover {
+    border-top: 3px solid #fff;
+  }
+}
+/* 現在のスライドのスタイル */
+.swiper-pagination-bullet-active {
+  width: 40px;
+  height: 8px;
+  background: #fff;
+}
+/* 前ページ、次ページボタンのスタイル */
+.swiper-button-prev,
+.swiper-button-next {
+  width: auto; /* ボタンの幅 */
+  height: auto; /*ボタンの高さ*/
+  margin-top: -15px; /* 縦中央配置用：ボタンの高さの半分のネガティブマージン（top:50%がすでに設定されている） */
+  padding: 10px;
+  background-image: none;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  line-height: 11px;
+  text-align: center;
+  opacity: 0.8;
+  transition: all 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

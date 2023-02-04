@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meets模写</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@400;700&family=Open+Sans:wght@400;700&family=Parisienne&display=swap" rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    <!-- style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="preload">
+    <div class="loading_wrapper"></div>
+        <!-- header -->
+        <header class="header">
+            <h1 class="header_logo">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="logo" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 143.6 32.5" style="enable-background:new 0 0 143.6 32.5;" xml:space="preserve"><style type="text/css">.main-logo{fill:#DD5E72;}</style><g><path class="main-logo" d="M78.7,27.9c-1.1,0.6-2.7,1.3-5,1.3c-2,0-3.8-0.8-4.9-2.6c-0.6-1-1.1-2.9-1.1-3.7c7.2,0.1,12.7-1.2,11.8-6.3c-0.5-2.8-3-5-6.7-5c-6.3,0-9.4,6.6-8.3,12.5c0.8,4.3,3.8,7.9,8.9,7.9c2.6,0,4.9-0.7,6.2-1.5L78.7,27.9z M72.9,14.2c1.8,0,3.1,0.9,3.4,2.5l0,0c0.6,3-3.4,3.7-8.6,3.7C67.9,17.3,69.7,14.2,72.9,14.2 M94.4,7.4l-3.3,1.1V12h-2.8l0,2.6h2.8l0,9.9c0,1.4,0,2.5,0.3,3.7c0.4,2,1.9,3.8,4.8,3.8c1,0,2-0.1,2.5-0.4L98.4,29c-0.4,0.1-0.9,0.2-1.5,0.2c-1.3,0-2-0.7-2.2-1.9c-0.2-1-0.2-2-0.2-3.1l0-9.5h4.7l0-2.6h-4.7L94.4,7.4z M50.3,29.3c-2,0-3.7-0.8-4.9-2.6c-0.6-1-1.1-2.9-1.1-3.7c7.2,0.1,12.7-1.2,11.8-6.3c-0.5-2.8-3-5-6.7-5c-6.3,0-9.4,6.6-8.3,12.5C42,28.4,45,32,50.1,32c2.6,0,4.9-0.7,6.2-1.5l-1-2.5C54.2,28.6,52.6,29.3,50.3,29.3 M49.5,14.2c1.8,0,3.2,0.9,3.5,2.5l0,0c0.6,3-3.4,3.7-8.6,3.7C44.5,17.3,46.3,14.2,49.5,14.2M31.5,29.1c-1.3,0-2-0.7-2.2-1.9c-0.2-1-0.2-2-0.2-3.1l0,0l0-4.2c0-1.1-0.1-2.4-0.3-3.3C28,13,25.2,11.6,23,11.6c-2.5,0-4.5,1.2-5.8,3.3c-1-2.4-3-3.3-4.8-3.3c-2.3,0-4.2,1-5.5,2.8c0-0.5-0.1-1-0.2-1.5C6.4,11.1,5,9.5,2.3,9.5C1.4,9.5,0.5,9.6,0,9.8l0.3,2.4C0.7,12.1,1.2,12,1.7,12c1.2,0,1.8,0.7,2,1.7c0,0.3,0.1,0.5,0.1,0.8c0,1,0.1,2,0.1,3.2l0,13.8h3.3v-14c0.9-1.9,2.4-3.1,3.9-3.1c2.5,0,3.2,1.7,3.5,3.3c0.1,0.8,0.2,1.5,0.2,2.4l0,11.4h3.2L18,20c0-0.7-0.1-1.5-0.1-2.3c0.9-2.1,2.5-3.4,4.1-3.4c2.2,0,3.2,1.3,3.6,3.4c0.2,0.8,0.2,1.8,0.2,2.5l0,4.2c0,1.4,0,2.5,0.3,3.7c0.4,2,1.9,3.8,4.8,3.8c1,0,2-0.1,2.5-0.4L33,29C32.6,29.1,32.1,29.1,31.5,29.1 M114.2,20.4c-2-1-3.1-1.8-3.3-3.3c-0.3-1.7,0.9-2.9,2.9-2.9c1.5,0,2.8,0.5,3.5,0.9l0.4-2.5c-0.8-0.5-2.5-1-4.2-1c-4.2,0-6.6,2.6-5.9,6c0.4,2,2,3.7,4.4,5c2.3,1.1,3.1,2.1,3.4,3.6c0.3,1.7-0.8,3.2-3.1,3.2c-1.6,0-3.4-0.6-4.4-1.2l-0.5,2.5c1,0.7,3,1.3,5.1,1.3c4.2,0,7-2.3,6.2-6.4C118.3,23.4,116.6,21.7,114.2,20.4"/><path class="main-logo" d="M141.3,26.6L141.3,26.6L141.3,26.6c-0.5-0.5-1.2-0.8-1.9-0.9c-0.4,0-0.8,0-1.2,0.2l0.1-0.3c0.1-1-0.5-2.1-1.3-2.7c-0.5-0.3-0.9-0.5-1.4-0.5c-0.4,0-0.8,0-1.3,0.2c-1.2,0.4-2.1,1.6-2.2,3.5l0,0.4c0,0,0,0.4,0.1,0.7c0.2,1.3,0.4,2.7,0.3,3.7c-0.1,0.7-0.2,1.2-0.6,1.4l0,0.1l0.1,0.1c0,0,0.3,0,0.8,0.1c1.3,0.1,4,0.2,6.2-0.3c2-0.5,3.1-1.6,3.3-2.9l0-0.3C142.2,28,142,27.3,141.3,26.6"/><path class="main-logo" d="M143.5,6.2c-0.5-1.7-1.5-2.8-3.2-3.5c-0.4-0.2-0.8-0.3-1.3-0.3c-1.6-0.1-3.3,0.4-4.3,1.6c-0.3-1.9-2.3-3.6-4.2-3.9c-0.1,0-0.3,0-0.4-0.1c-1.6-0.1-2.9,0.3-4.1,1.5c-0.9,0.8-1.4,2-1.5,3.5c-0.1,1.3,0.1,2.7,0.8,4.3c0,0,0.3,0.6,0.6,1c1.8,2.8,3.7,5.9,3.6,7.7c0,0.3-0.1,0.5-0.2,0.7v0.1l0.1,0l0,0c0,0,6.8-2.3,11.1-5.6c2.1-1.6,3.1-3.5,3.3-5.3C143.7,7.3,143.6,6.7,143.5,6.2"/></g></svg>            </h1>
+            <nav class="header_button">
+                <a href="#">reserve</a>
+            </nav>
+        </header>
+
+        <!-- mainvisual -->
+        <section class="mainvisual">
+            <div class="mainvisual_container">
+                <div id="sldWrapper" class="mainvisual_img_container">
+                    <h2 class="mainvisual_title">Both kids and adults can relax salon.</h2>
+                    <ul class="mainvisual_img_wrapper">
+                    <li id="sld1" class="sldFade mainvisual_img mainvisual_img1"></li>
+                    <li id="sld2" class="sldFade mainvisual_img mainvisual_img2"></li>
+                    <li id="sld3" class="sldFade mainvisual_img mainvisual_img3"></li>
+                    <li id="sld4" class="sldFade mainvisual_img mainvisual_img4"></li>
+                    <li id="sld5" class="sldFade mainvisual_img mainvisual_img5"></li>
+                    <li id="sld6" class="sldFade mainvisual_img mainvisual_img6"></li>
+                    <li id="sld7" class="sldFade mainvisual_img mainvisual_img7"></li>
+                    <li id="sld8" class="sldFade mainvisual_img mainvisual_img8"></li>
+                    <li id="sld9" class="sldFade mainvisual_img mainvisual_img9"></li>
+                    <li id="sld10" class="sldFade mainvisual_img mainvisual_img10"></li>
+                    </ul>
+                </div>
+                <div class="mainvisual_icon">
+                    <span class="mainvisual_icon_item1"></span>
+                    <span class="mainvisual_icon_item2 scroll_animation"></span>
+                    <span class="mainvisual_icon_text">scroll</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- about -->
+        <section class="about">
+            <div class="about_img">
+                <div class="loop_container">
+                    <div class="loop_wrapper">
+                        <div class="loop_item loop_item1">
+                            <img src="./image/s_image1.jpg" alt="">
+                            <img src="./image/s_image2.jpg" alt="">
+                            <img src="./image/s_image3.jpg" alt="">
+                            <img src="./image/s_image4.jpg" alt="">
+                            <img src="./image/s_image5.jpg" alt="">
+                            <img src="./image/s_image6.jpg" alt="">
+                        </div>
+                        <div class="loop_item loop_item2">
+                            <img src="./image/s_image1.jpg" alt="">
+                            <img src="./image/s_image2.jpg" alt="">
+                            <img src="./image/s_image3.jpg" alt="">
+                            <img src="./image/s_image4.jpg" alt="">
+                            <img src="./image/s_image5.jpg" alt="">
+                            <img src="./image/s_image6.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section_container">
+                <h2 class="about_title">キッズ&ママのステキと、女性の素敵をデザインする。</h2>
+                <hr>
+                <div class="about_text">
+                    <h3>友人やご家族と共にゆったり過ごせるサロンです。</h3>
+                    <p>
+                        meetsでは、ご希望のヘアデザインに仕上がるよう、高い技術力とカウンセリングでお応え。<br class="br-pc">
+                        ママでありながらも一人の女性として、生活の一部でもある「美容」を全力でサポートします。<br class="br-pc">
+                        また、大切なお子様にも安心していただけるオーガニック用品も取り揃えています。<br class="br-pc">
+                        ヘアデザインの仕上がりへの満足はもちろんですが、「居心地」にも最大限配慮します。<br class="br-pc">
+                        ご来店いただいた以上、ゆったりとくつろいでいただけるよう、あらゆるサービスをご用意しています。<br class="br-pc">
+                        ご家族でご来店いただいても、お子様が安全に遊べるキッズスペース、ブランコやすべり台が設置されたお庭など、<br class="br-pc">
+                        小さなお子様も自由にくつろげるサロンです。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- menu -->
+        <section class="menu">
+            <div class="section_title">
+                <p>01</p>
+                <h2>menu</h2>
+            </div>
+            <ul class="menu_items">
+                <li class="menu_item">
+                    <h3>Cut</h3>
+                    <dl>
+                        <dt>カット</dt>
+                        <dd>¥ 4,500</dd>
+                    </dl>
+                    <dl>
+                        <dt>トップスタイリスト</dt>
+                        <dd>¥ 4,800</dd>
+                    </dl>
+                    <dl>
+                        <dt>キッズカット</dt>
+                        <dd>¥ 2,500 〜</dd>
+                    </dl>
+                    <p class="menu_item_notice">
+                        ※カット価格　シャンプー・ブロー込<br>
+                        ※キッズカットはシャンプー・ブローなしの価格<br>
+                        ※学割あり
+                    </p>
+                </li>
+                <li class="menu_item">
+                    <h3>Color</h3>
+                    <dl>
+                        <dt>リタッチ</dt>
+                        <dd>￥ 4,500 ～</dd>
+                    </dl>
+                    <dl>
+                        <dt>ワンタッチ</dt>
+                        <dd>¥ 5,000 〜</dd>
+                    </dl>
+                    <dl>
+                        <dt>ツータッチ</dt>
+                        <dd>¥ 7,000 〜</dd>
+                    </dl>
+                    <dl>
+                        <dt>ダブルカラー</dt>
+                        <dd>¥ 9,000 〜</dd>
+                    </dl>
+                    <dl>
+                        <dt>オーガニックカラー</dt>
+                        <dd>¥ + 500</dd>
+                    </dl>
+                </li>
+                <li class="menu_item">
+                    <h3>Perm</h3>
+                    <dl>
+                        <dt>ベーシックパーマ</dt>
+                        <dd>¥ 6,600 〜</dd>
+                    </dl>
+                    <dl>
+                        <dt>デジタルパーマ</dt>
+                        <dd>¥ 11,600 〜</dd>
+                    </dl>
+                    <dl>
+                        <dt>ストレートパーマ</dt>
+                        <dd>¥ 17,000 〜</dd>
+                    </dl>
+                </li>
+                <li class="menu_item">
+                    <h3>Spa & Treatment</h3>
+                    <dl>
+                        <dt>トリートメント各種</dt>
+                        <dd>¥ 3,500 〜 ¥ 4,000</dd>
+                    </dl>
+                    <p>（MILBON／Aujua）</p>
+                    <dl>
+                        <dt>スパ各種</dt>
+                        <dd>¥ 500 〜 ¥ 5,000</dd>
+                    </dl>
+                    <p>（Villa Lodola／MILBON／Aujua）</p>
+                </li>
+                <li class="menu_item">
+                    <h3>Other</h3>
+                    <dl>
+                        <dt>シャンプー&ブロー</dt>
+                        <dd>¥ 2,500</dd>
+                    </dl>
+                    <dl>
+                        <dt>セット / アップ</dt>
+                        <dd>¥ 4,000 / ¥ 5,000</dd>
+                    </dl>
+                    <dl>
+                        <dt>ポイントメイク / フルメイク</dt>
+                        <dd>¥ 2,000 / ¥ 4,000</dd>
+                    </dl>
+                    <dl>
+                        <dt>時間外料金（1時間毎）</dt>
+                        <dd>+ ¥ 1,500</dd>
+                    </dl>
+                </li>
+                <li class="menu_item">
+                    <ul>
+                        <li>表示価格はすべて税込です（R1年10月1日現在）</li>
+                        <li>カット料金以外は、シャンプー・ブローは含まれておりません。</li>
+                        <li>スタイリストやデザインによって料金が異なる場合がございますので予めご確認ください。</li>
+                        <li>各種カードでのお支払いも可能です。</li>
+                        <li>詳細などお問い合わせはお電話にてご確認ください。</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+    <!-- campaign -->
+        <section class="campaign">
+            <div class="campaign_img">
+                <h2>campaign</h2>
+            </div>
+            <div class="section_container campaign_container">
+                <div class="campaign_item">
+                    <div class="campaign_item_title">
+                        <h3> 忙しい女性の為の贅沢コース</h3>
+                        <p>【カット + カラー + トリートメント + スパ】</p>
+                    </div>
+                    <p class="campaign_item_text">
+                        二時間で全てが体験できる忙しい女性の為の時短メニューを入れたmeetsコース。<br class="br_pc">
+                        クイックスパ(15分）、トリートメント（週１×４本分のホームトリートメント付き）
+                    </p>
+                    <table class="campaign_item_table">
+                        <tbody>
+                            <tr>
+                                <th>料金</th>
+                                <td>￥ 13,000</td>
+                            </tr>
+                            <tr>
+                                <th>提示条件</th>
+                                <td>予約時</td>
+                            </tr>
+                            <tr>
+                                <th>利用条件</th>
+                                <td>他券併用不可</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="campaign_item">
+                    <div class="campaign_item_title">
+                        <h3>ママスタイリスト限定プラン</h3>
+                        <p>【カット + カラー + トリートメント】</p>
+                    </div>
+                    <p class="campaign_item_text">
+                        おトクでキレイになりましょう！<br class="br_pc">
+                        カット＋全体カラー＋トリートメント（週１×４本分のホームトリートメント付き）<br class="br_pc">
+                        ママスタイリスト以外はご利用できないクーポンとなりますのでご了承ください。
+                    </p>
+                    <table class="campaign_item_table">
+                        <tbody>
+                            <tr>
+                                <th>料金</th>
+                                <td>￥ 12,000</td>
+                            </tr>
+                            <tr>
+                                <th>提示条件</th>
+                                <td>予約時</td>
+                            </tr>
+                            <tr>
+                                <th>利用条件</th>
+                                <td>他券併用不可</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#" class="btn">予約する</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- service -->
+        <div class="service_top_wrapper">
+            <div class="service_top"></div>
+        </div>
+        <section class="service">
+            <div class="section_title service_title">
+                <p>02</p>
+                <h2>service style</h2>
+            </div>
+            <div class="section_container">
+                <div class="service_text">
+                    <h3>サロンケア・ホームケア共に考え、ご家族みんなでリラックス。</h3>
+                    <p>meetsでは、髪や頭皮の健康を考え、丁寧なカウンセリングと共に「なりたい自分」へのカット、ヘアケアを徹底しています。また小さなお子様も安心してカットできる楽しい環境や、大人がカットしている間にお子様の遊べるキッズスペースを設けています。ご家族一緒に、ゆったりと楽しいひと時を、ご堪能ください。</p>
+                </div>
+                <ul class="service_img">
+                    <li>
+                        <img src="./image/style1.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./image/style2.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./image/style3.jpg" alt="">
+                    </li>
+                </ul>
+                <div class="service_items">
+                    <div class="service_item">
+                        <div class="service_item_top">
+                            <p>ヘアケアを見る</p>
+                            <div class="service_item_top_icon"></div>
+                        </div>
+                        <div class="service_item_text">
+                            <h3>トリートメントの美髪効果で憧れられる素敵な女性に。</h3>
+                            <p>
+                                髪、それは女性は常に美しくありたいもの。カラーやパーマ、ヘアデザインを楽しみたいのに髪がまとまらない、パサつく…また年齢とともに変化していく髪など、悩みは様々です。meetsでは、お客様一人一人の髪質を考慮し、徹底的に研究された薬剤を使用しています。サロンケアはもちろんホームケアまで悩みにあわせて、しっかり提案させていただきます。
+                            </p>
+                            <img src="./image/style-cut1.jpg" alt="トリートメント画像">
+                            <h3>スパで髪の生き方が変わる。毎日のお手入れが楽になる。</h3>
+                            <p>
+                                頭皮、それはキレイな髪を作る土台。髪のツヤ、ボリュームがでない、また抜け毛やかゆみなどの悩みと様々ですが、実は頭皮の状態が原因です。そのためにはスパがオススメです。リラクゼーションだけではなく頭皮を育むための技術です。meetsでは、ヘアデザインを楽しんでいただくためにお客様一人一人に適したスパを提案させていただきます。またシャンプーやトリートメント、美容器具などの商品もmeetsでは販売しており、お買い求めいただけます。
+                            </p>
+                            <img src="./image/style-cut2.jpg" alt="ヘッドスパ画像">
+                        </div>
+                    </div>
+                    <div class="service_item">
+                        <div class="service_item_top">
+                            <p>キッズコーナーを見る</p>
+                            <div class="service_item_top_icon"></div>
+                        </div>
+                        <div class="service_item_text">
+                            <h3>お子様も楽しめるカットスペースと遊び場。</h3>
+                            <p>
+                                meetsには、ブランコや滑り台などを設けた「庭」や、ブロックやおもちゃなどで遊べる「遊具場」、ボール遊びやおもちゃのレールを組み立てたりできる「ボールプール部屋」など、たくさんの遊び場が設けてあります。お子様自身がカットするにも、車のシートに座ってDVDを鑑賞できるカットスペースもあり、楽しく過ごせます。
+                            </p>
+                            <img src="./image/style-kids1.jpg" alt="キッズコーナー画像１">
+                            <h3>お子様を目配りしながら、楽しくカット。</h3>
+                            <p>
+                                meetsには、ブランコや滑り台などを設けた庭があるので、お子様が庭でのびのびと遊ぶ様を眺めながら、安心して楽しくカットすることができます。またmeetsの並びには、「miku.」というカフェもあり、ご来店前後にお腹も満たせられるひと時も。アットホームなmeetsだからできる、親近感あるスタイルです。
+                            </p>
+                            <img src="./image/style-kids2.jpg" alt="キッズコーナー画像２">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- staff -->
+        <section class="staff">
+            <div class="section_title staff_title">
+                <p>03</p>
+                <h2>staff</h2>
+            </div>
+            <div class="staff_container swiper-parent">
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide staff_item">
+                            <p class="staff_item_img">
+                                <img src="./image/staff_kako.jpg" alt="">
+                            </p>
+                            <div class="staff_item_text">
+                                <p class="staff_item_text_position">owner</p>
+                                <p class="staff_item_text_name">加古　有市郎</p>
+                                <p class="staff_item_text_furigana">Yuichiro Kako</p>
+                                <p class="staff_item_text_comment">
+                                    ボブは誰にも負けません！収まりと手入れのしやすさから繰り広げられるWorldを、ぜひご堪能ください。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide staff_item">
+                            <p class="staff_item_img">
+                                <img src="./image/staff_morishita.jpg" alt="">
+                            </p>
+                            <div class="staff_item_text">
+                                <p class="staff_item_text_position">owner</p>
+                                <p class="staff_item_text_name">加古　有市郎</p>
+                                <p class="staff_item_text_furigana">Yuichiro Kako</p>
+                                <p class="staff_item_text_comment">
+                                    ボブは誰にも負けません！収まりと手入れのしやすさから繰り広げられるWorldを、ぜひご堪能ください。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide staff_item">
+                            <p class="staff_item_img">
+                                <img src="./image/staff_tachino.jpg" alt="">
+                            </p>
+                            <div class="staff_item_text">
+                                <p class="staff_item_text_position">owner</p>
+                                <p class="staff_item_text_name">加古　有市郎</p>
+                                <p class="staff_item_text_furigana">Yuichiro Kako</p>
+                                <p class="staff_item_text_comment">
+                                    ボブは誰にも負けません！収まりと手入れのしやすさから繰り広げられるWorldを、ぜひご堪能ください。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide staff_item">
+                            <p class="staff_item_img">
+                                <img src="./image/staff_tsuzi.jpg" alt="">
+                            </p>
+                            <div class="staff_item_text">
+                                <p class="staff_item_text_position">owner</p>
+                                <p class="staff_item_text_name">加古　有市郎</p>
+                                <p class="staff_item_text_furigana">Yuichiro Kako</p>
+                                <p class="staff_item_text_comment">
+                                    ボブは誰にも負けません！収まりと手入れのしやすさから繰り広げられるWorldを、ぜひご堪能ください。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide staff_item">
+                            <p class="staff_item_img">
+                                <img src="./image/staff_hagi.jpg" alt="">
+                            </p>
+                            <div class="staff_item_text">
+                                <p class="staff_item_text_position">owner</p>
+                                <p class="staff_item_text_name">加古　有市郎</p>
+                                <p class="staff_item_text_furigana">Yuichiro Kako</p>
+                                <p class="staff_item_text_comment">
+                                    ボブは誰にも負けません！収まりと手入れのしやすさから繰り広げられるWorldを、ぜひご堪能ください。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev">PREV</div>
+                    <div class="swiper-button-next">NEXT</div>
+                </div>
+            </div>
+        </section>
+        <section class="instagram">
+            <div class="section_title">
+                <p>04</p>
+                <h2>instagram</h2>
+                <ul class="instagram_contents">
+                    <li class="instagram_contents_item">
+                        <div class="instagram_contents_wrapper">
+                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CK-6JtOlA-U/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="13" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CK-6JtOlA-U/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CK-6JtOlA-U/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">sugi(@kinariworks.wire)がシェアした投稿</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                        </div>
+                    </li>
+                    <li class="instagram_contents_item">
+                        <div class="instagram_contents_wrapper">
+                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CKYVCTPlTfK/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="13" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CKYVCTPlTfK/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CKYVCTPlTfK/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">sugi(@kinariworks.wire)がシェアした投稿</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- access -->
+        <section class="access">
+            <div class="section_title">
+                <p>05</p>
+                <h2>access</h2>
+            </div>
+            <div class="section_container access_container">
+                <div class="access_phone">
+                    <a href="#">059-334-3332</a>
+                    <p>この電話番号から予約できます。</p>
+                </div>
+                <dl class="access_contents">
+                    <dt>営業時間</dt>
+                    <dd>9:00～19:00（月曜日 / 第2・第3火曜日定休）</dd>
+                    <dt>住所</dt>
+                    <dd>〒512-0906 三重県四日市市山之一色町2407-2</dd>
+                </dl>
+                <a href="#" class="btn access_btn">google mapで見る</a>
+            </div>
+            <div class="access_map">
+                <div class="access_map_wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3267.8983070012227!2d136.59775531524056!3d35.009250680356345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600391fa4e2054b5%3A0xd4c73e19cd281ae0!2z44CSNTEyLTA5MDYg5LiJ6YeN55yM5Zub5pel5biC5biC5bGx5LmL5LiA6Imy55S677yS77yU77yQ77yX4oiS77yS!5e0!3m2!1sja!2sjp!4v1613260037158!5m2!1sja!2sjp" width="800" height="320" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                <a href="#" class="btn access_map_btn">大きい地図で見る</a>
+            </div>
+        </section>
+
+        <!-- recruite -->
+        <section class="recruite">
+            <div class="section_title">
+                <p>06</p>
+                <h2>recruite</h2>
+            </div>
+            <div class="section_container">
+                <div class="recruite_text">
+                    <h3>staff募集</h3>
+                    <p>
+                        ROSE・meets・musicの3店舗共にスタッフ大募集しています。<br class="br_pc">
+                        興味がある方は下のボタンをクリックしてください。
+                    </p>
+                </div>
+                <a href="#" class="btn recruite_btn">recruite form</a>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer_sns">
+                <a href="#" class="footer_sns_instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="footer_sns_facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+                <small>COPYRIGHT © meets ALL RIGHTS RESERVED.</small>
+        </footer>
+ 
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
